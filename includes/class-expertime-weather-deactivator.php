@@ -20,17 +20,22 @@
  * @subpackage Expertime_Weather/includes
  * @author     Salem <jules.edelin@gmail.com>
  */
-class Expertime_Weather_Deactivator {
+class Expertime_Weather_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate()
+    {
+        global $wpdb;
+                
+        $table_name = $wpdb->prefix . "expertime_weather";
 
-	}
-
+        $wpdb->query("Drop table IF EXISTS $table_name");
+    }
 }
