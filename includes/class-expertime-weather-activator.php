@@ -29,13 +29,13 @@ class Expertime_Weather_Activator
        *
        * @since    1.0.0
        */
-    public static function activate()
+    public static function activate(Expertime_Weather_Tables $tables)
     {
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         
         global $wpdb;
         
-        $table_name = $wpdb->prefix . "expertime_weather";
+        $table_name = $wpdb->prefix . $tables::TABLE_NAME;
         $charset_collate = $wpdb->get_charset_collate();
 
         if ($wpdb->get_var("Show tables like $table_name") === null) {

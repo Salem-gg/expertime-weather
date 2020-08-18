@@ -42,8 +42,10 @@ define( 'EXPERTIME_WEATHER_VERSION', '1.0.0' );
  * This action is documented in includes/class-expertime-weather-activator.php
  */
 function activate_expertime_weather() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-expertime-weather-tables.php';
+	$tables = new Expertime_Weather_Tables();
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-expertime-weather-activator.php';
-	Expertime_Weather_Activator::activate();
+	Expertime_Weather_Activator::activate($tables);
 }
 
 /**
@@ -51,8 +53,10 @@ function activate_expertime_weather() {
  * This action is documented in includes/class-expertime-weather-deactivator.php
  */
 function deactivate_expertime_weather() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-expertime-weather-tables.php';
+	$tables = new Expertime_Weather_Tables();
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-expertime-weather-deactivator.php';
-	Expertime_Weather_Deactivator::deactivate();
+	Expertime_Weather_Deactivator::deactivate($tables);
 }
 
 register_activation_hook( __FILE__, 'activate_expertime_weather' );

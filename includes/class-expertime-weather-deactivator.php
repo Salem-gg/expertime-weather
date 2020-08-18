@@ -30,12 +30,14 @@ class Expertime_Weather_Deactivator
      *
      * @since    1.0.0
      */
-    public static function deactivate()
+    public static function deactivate(Expertime_Weather_Tables $tables)
     {
         global $wpdb;
+
+        $table_name = $wpdb->prefix . $tables::TABLE_NAME;
                 
-        $table_name = $wpdb->prefix . "expertime_weather";
 
         $wpdb->query("Drop table IF EXISTS $table_name");
+
     }
 }
