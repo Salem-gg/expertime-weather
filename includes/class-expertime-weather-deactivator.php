@@ -39,5 +39,18 @@ class Expertime_Weather_Deactivator
 
         $wpdb->query("Drop table IF EXISTS $table_name");
 
+        $get_data = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT * FROM " . $wpdb->prefix . "posts WHERE post_name = %s",
+                'weather'
+            )
+        );
+
+        if ($get_data->ID > 0) {
+
+            wp_delete_post($get_data->ID, true);
+            
+        }
+
     }
 }

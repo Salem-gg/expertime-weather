@@ -47,5 +47,25 @@ class Expertime_Weather_Activator
 
             dbDelta($sql);
         }
+
+        $get_data = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT * FROM " . $wpdb->prefix . "posts WHERE post_name = %s",
+                'weather'
+            )
+        );
+
+        if (empty($get_data)) {
+            $post_arr_data = [
+                "post_title" => "Weather",
+                "post_name" => "weather",
+                "post_status" => "publish",
+                "post_author" => 1,
+                "post_content" => "Weather page",
+                "post_type" => "page"
+            ];
+
+            wp_insert_post($post_arr_data);
+        }
     }
 }
