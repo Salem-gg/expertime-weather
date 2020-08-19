@@ -157,6 +157,11 @@ class Expertime_Weather {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+
+		$this->loader->add_action('admin_menu', $plugin_admin, 'menus_sections');
+
+		$this->loader->add_action("wp_ajax_admin_ajax_request", $plugin_admin, "handle_ajax_requests_admin");
+
 	}
 
 	/**
