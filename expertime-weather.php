@@ -38,6 +38,11 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'EXPERTIME_WEATHER_VERSION', '1.0.0' );
 
 /**
+ * Plugin's table name
+ */
+define( 'EXPERTIME_WEATHER_TABLE_NAME', "expertime_weather" );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-expertime-weather-activator.php
  */
