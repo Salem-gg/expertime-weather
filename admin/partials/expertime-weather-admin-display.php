@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <form action="javascript:void()" id="frm-endpoint">
+      <form action="javascript:void(0)" id="frm-endpoint">
         <div class="form-group">
           <label for="endpoint">Configurez ici votre accès à l'api</label>
           <input type="text" class="form-control" id="frm-endpoint-input" name="endpoint-input" placeholder="endpoint" value="<?php if($endpoint != null) { echo($endpoint); } ?>" required>

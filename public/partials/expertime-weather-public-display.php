@@ -11,6 +11,7 @@
  * @package    Expertime_Weather
  * @subpackage Expertime_Weather/public/partials
  */
+  get_header();
+  do_shortcode("[render-expertime-weather]");
+  get_footer();
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->

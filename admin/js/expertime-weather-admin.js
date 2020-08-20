@@ -8,7 +8,6 @@
 				postdata += "&action=admin_ajax_request&param=update_endpoint";
 
 				jQuery.post(ajaxurl, postdata, function (response) {
-					console.log(response.substring(0, response.length - 1));
 					var data = jQuery.parseJSON(response.substring(0, response.length - 1));
 					
 					if (data.status == 1) {
@@ -19,7 +18,6 @@
 					}
 				});
 			}
-
 		});
 	});
 })(jQuery);

@@ -128,6 +128,7 @@ class Expertime_Weather_Admin
                 global $wpdb;
                 $endpoint = isset($_REQUEST['endpoint-input']) ? $_REQUEST['endpoint-input'] : null;
                 
+                $wpdb->delete($wpdb->prefix . EXPERTIME_WEATHER_TABLE_NAME, ["id" => $wpdb->get_var("SELECT id FROM " . $wpdb->prefix . EXPERTIME_WEATHER_TABLE_NAME . " WHERE id = (SELECT MAX(id) FROM " . $wpdb->prefix . EXPERTIME_WEATHER_TABLE_NAME . ")")]);
                 $wpdb->insert($wpdb->prefix . EXPERTIME_WEATHER_TABLE_NAME, ["endpoint" => $endpoint]);
 
                 if ($wpdb->insert_id > 0) {
